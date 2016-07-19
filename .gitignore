@@ -1,0 +1,11 @@
+/*
+!/.gitignore
+!/.bashrc
+!/.gitconfig
+!/.profile
+!/.vimrc
+!/.ssh/config_*
+!/.tmux.conf
+!/.zshrc
+!/setup_home.sh
+!/README.md

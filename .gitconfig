@@ -1,0 +1,18 @@
+[user]
+  email = ghost.squadron@gmail.com 
+  name = Wes McNamee
+[push]
+  default = current
+[core]
+  pager = less -r
+[branch]
+  autosetuprebase = always
+[alias]
+  br = checkout -b
+  ci = commit --all
+  co = checkout
+  rb = rebase master
+  st = status
+  lg = log --name-status
+  ad = add -A
+
