@@ -49,7 +49,7 @@ ZSH_THEME="amuse"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git tmux python pyenv virtualenv virtualenvwrapper pip debian docker git github gitignore colorize)
 
 # User configuration
 
