@@ -2,6 +2,9 @@
 !/.gitignore
 !/.bashrc
 !/.gitconfig
+!/.oh-my-zsh
+/.oh-my-zsh/themes/*
+!/.oh-my-zsh/themes/amusewes.zsh-theme
 !/.profile
 !/.vimrc
 !/.ssh/config_*
