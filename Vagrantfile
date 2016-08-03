@@ -4,13 +4,19 @@
 Vagrant.require_version ">= 1.6.0"
 VAGRANTFILE_API_VERSION = "2"
 
-# run this first:
-# vagrant plugin install vagrant-vbguest
-# vagrant plugin install vagrant-hostmanager
+unless Vagrant.has_plugin?('vagrant-vbguest')
+  system('vagrant plugin install vagrant-vbguest') || exit!
+  exit system('vagrant', *ARGV)
+end
+
+unless Vagrant.has_plugin?('vagrant-hostmanager')
+  system('vagrant plugin install vagrant-hostmanager') || exit!
+  exit system('vagrant', *ARGV)
+end
 
 # Create and configure the VM(s)
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-    config.vm.box = "box-cutter/ubuntu1404-desktop"
+    config.vm.box = "wesm/ubuntu1404-desktop"
 
     config.hostmanager.enabled = true
     config.hostmanager.manage_host = true
@@ -20,10 +26,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     config.vm.provider "virtualbox" do |v|
         v.name = "ubuntu"
-        v.memory = "3096"
+        v.memory = "4096"
         v.cpus = 2
         v.gui = true
     end
+    
+    config.vm.network "private_network", ip: "172.170.1.10"
 
     config.vm.define "ubuntu" do |c7d|
     end
@@ -37,10 +45,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Always use Vagrant's default insecure key
     config.ssh.insert_key = false
 
-    config.vm.provision "shell", inline: "sudo apt-get update -y"
-    #config.vm.provision "shell", inline: "sudo apt-get install -y zsh git-core vim"
-    #config.vm.provision "shell", inline: "wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh"
-    #config.vm.provision "shell", inline: "chsh -s `which zsh`"
-    #config.vm.provision "shell", inline: "git clone https://github.com/powerline/fonts.git"
-    #config.vm.provision "shell", inline: "sudo shutdown -r 0"
+#sudo apt-get update -y &&\
+#sudo apt-get upgrade -y &&\
+#sudo apt-get install -y zsh git-core vim &&\
+#wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh &&\
+#git clone https://github.com/powerline/fonts.git &&\
+#./fonts/install.sh &&\
+#chsh -s `which zsh` &&\
+#sudo apt-get clean &&\
+#sudo apt-get autoclean &&\
+#sudo apt-get autoremove
+
 end
