@@ -56,9 +56,13 @@ plugins=(git tmux python pyenv virtualenv virtualenvwrapper pip debian docker gi
 # export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
+include () {
+        [[ -f "$1" ]] && source "$1"
+}
+
 source $ZSH/oh-my-zsh.sh
-source ~/.bin/tmuxinator.zsh
-source /Users/wes/.rvm/scripts/rvm
+include ~/.bin/tmuxinator.zsh
+include ~/.rvm/scripts/rvm
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
