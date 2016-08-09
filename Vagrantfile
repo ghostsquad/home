@@ -30,7 +30,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         v.cpus = 2
         v.gui = true
     end
-    
+
     config.vm.network "private_network", ip: "172.170.1.10"
 
     config.vm.define "ubuntu" do |c7d|
@@ -55,5 +55,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 #sudo apt-get clean &&\
 #sudo apt-get autoclean &&\
 #sudo apt-get autoremove
+#curl -fsSL https://get.docker.com/ | sh
 
 end
