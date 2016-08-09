@@ -47,7 +47,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 #sudo apt-get update -y &&\
 #sudo apt-get upgrade -y &&\
-#sudo apt-get install -y zsh git-core vim &&\
+#sudo apt-get install -y zsh git-core vim terminator &&\
 #wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh &&\
 #git clone https://github.com/powerline/fonts.git &&\
 #./fonts/install.sh &&\
